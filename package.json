@@ -70,6 +70,8 @@
   },
   "homepage": "https://github.com/yutaro-t/covid-19-site#readme",
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@types/recharts": "^1.8.9",
     "csvtojson": "^2.0.10",
     "react": "^16.13.1",
