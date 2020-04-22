@@ -1,0 +1,86 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/all",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "prettier/@typescript-eslint",
+      "prettier/react"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+      "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}],
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "no-prototype-builtins": "off",
+      "react/prop-types":"off",
+      "react/sort-comp": "off",
+      "react/no-multi-comp": "off",
+      "react/jsx-first-prop-new-line": "off",
+      "react/function-component-definition": "off",
+      "react/jsx-sort-props": "off",
+      "react/jsx-max-props-per-line": "off",
+      "react/jsx-one-expression-per-line": "off",
+      "react/no-array-index-key": "off",
+      "react/jsx-no-literals": "off",
+      "react/jsx-no-bind": "off",
+      "react/forbid-component-props": "off",
+      "react/jsx-max-depth": "off",
+      "react-hooks/rules-of-hooks": "error", 
+      "react-hooks/exhaustive-deps": "warn",
+      "react/jsx-props-no-spreading": "off",
+      "react/jsx-filename-extension": ["error", {"extensions": [".jsx", ".tsx"]}],
+      "prefer-const": "error",
+      "dot-notation": "error",
+      "no-else-return": "error",
+      "prefer-object-spread": "error",
+      "no-console": "warn",
+      "prettier/prettier": [
+        "error", {
+          "singleQuote": true
+        }
+      ]
+    },
+
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect"
+    },
+    "linkComponents": [
+      "Hyperlink",
+      {"name": "Link", "linkAttribute": "to"}
+    ]
+  }
+}
