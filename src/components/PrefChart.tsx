@@ -12,45 +12,79 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import styled from '@emotion/styled';
+import { Prefs } from '@App/type';
 
 function formatDate(time: number): string {
   return new Date(time).toDateString().slice(4, 10);
 }
 
-export const Container = styled.div({
-  flex: '1 0 30%',
-  minWidth: 416,
-  padding: 8,
+export const Container = styled.div(
+  {
+    flex: '1 0 30%',
+    minWidth: 416,
+    padding: 8,
+    margin: 16
+  },
+  props => ({
+    boxShadow:
+      typeof props.children !== 'undefined'
+        ? '0px 1px 3px 0px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 2px 1px -1px rgba(0,0,0,0.12)'
+        : 'none'
+  })
+);
+
+const Heading = styled.h3({
+  paddingLeft: 32,
+  width: '60%',
+  margin: 0,
+  padding: 0
+});
+
+const Value = styled.div<{ isGreen: boolean }>(
+  {
+    width: '40%',
+    textAlign: 'right'
+  },
+  props => ({
+    color: props.isGreen ? 'green' : 'red'
+  })
+);
+const Flex = styled.div({
+  display: 'flex',
   margin: 16
 });
 
-const Heading = styled.h3({
-  paddingLeft: 32
-});
+function justifyOffset(def: number) {
+  if (isNaN(def)) return 0;
+  if (def < 0) return 0;
+  if (def > 1) return 1;
+  return def;
+}
 
-export const PrefChart: React.FC<{ pref: string }> = ({ pref }) => {
-  const value = useData(pref);
+export const PrefChart: React.FC<{ pref: Prefs }> = ({ pref }) => {
+  const rootData = useData();
+  if (typeof rootData === 'undefined') return <Container />;
+  const data = rootData[pref];
 
-  const maxValue = Math.max.apply(
-    null,
-    value?.data.map(d => d.range90[1]) ?? [1]
-  );
-  const minValue = Math.min.apply(
-    null,
-    value?.data.map(d => d.range90[0]) ?? [0]
-  );
-  const offset = (maxValue - 1) / (maxValue - minValue);
+  const maxValue = Math.max.apply(null, data.map(d => d.range90[1]) ?? [1]);
+  const minValue = Math.min.apply(null, data.map(d => d.range90[0]) ?? [0]);
+  const offset = justifyOffset((maxValue - 1) / (maxValue - minValue));
 
-  const maxLine = Math.max.apply(null, value?.data.map(d => d.ML) ?? [1]);
-  const minLine = Math.min.apply(null, value?.data.map(d => d.ML) ?? [0]);
-  const lineOffset = (maxLine - 1) / (maxLine - minLine);
+  const maxLine = Math.max.apply(null, data.map(d => d.ML) ?? [1]);
+  const minLine = Math.min.apply(null, data.map(d => d.ML) ?? [0]);
+  const lineOffset = justifyOffset((maxLine - 1) / (maxLine - minLine));
+  const latest = data[0]?.ML ?? Number.POSITIVE_INFINITY;
   return (
     <Container>
-      <Heading>{pref}</Heading>
-      <ResponsiveContainer width="100%" height={250}>
+      <Flex>
+        <Heading>{pref}</Heading>
+        <Value isGreen={latest < 1}>{latest.toString().slice(0, 4)}</Value>
+      </Flex>
+
+      <ResponsiveContainer width="100%" height={160}>
         <ComposedChart
-          data={value?.data}
-          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+          data={data}
+          margin={{ top: 0, right: 0, left: -24, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <defs>
