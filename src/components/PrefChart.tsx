@@ -20,8 +20,9 @@ function formatDate(time: number): string {
 
 export const Container = styled.div(
   {
-    flex: '1 0 30%',
-    minWidth: 416,
+    flex: '1 0 calc(30% - 32px)',
+    minWidth: 264,
+    justifyContent: 'space-between',
     padding: 8,
     margin: 16
   },
