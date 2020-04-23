@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useData } from '@App/contexts/dataContext';
-import { prefs, Prefs } from '@App/type';
+import { prefs } from '@App/type';
 import {
   CartesianGrid,
   XAxis,
@@ -11,28 +11,29 @@ import {
   BarChart,
   ReferenceLine,
   Cell,
-  RectangleProps,
-  Rectangle
+  Rectangle,
+  LabelList
 } from 'recharts';
 
-function shortPref(pref: Prefs) {
+function shortPref(pref: any) {
   if (pref === '北海道') return pref;
   return pref.slice(0, -1);
 }
 
-const AxisTick: React.FC<any> = ({ x, y, payload }) => {
+const AxisTick: React.FC<any> = ({ x, y, value, width, stroke }) => {
+  const display = shortPref(value);
   return (
     <g transform={`translate(${x},${y})`}>
       <text
         x={0}
         y={0}
-        dy={16}
-        textAnchor="end"
-        fill="#666"
-        fontSize={12}
-        transform="rotate(-45)"
+        dx={width / 2}
+        dy={3}
+        textAnchor="middle"
+        fill={stroke}
+        fontSize={display.length === 3 ? 6 : 8}
       >
-        {shortPref(payload.value)}
+        {display}
       </text>
     </g>
   );
@@ -43,6 +44,18 @@ const BarShape: React.FC<any> = props => {
   const { [dataKey]: values } = props;
   const y = (1 - values[0] / 4) * background.height + background.y;
   const height = ((values[0] - values[1]) / 4) * background.height;
+  const _props = {
+    ...props,
+    y,
+    height
+  };
+  return <Rectangle {..._props} />;
+};
+
+const DotShape: React.FC<any> = props => {
+  const { y: _y } = props;
+  const y = _y - 8;
+  const height = 16;
   const _props = {
     ...props,
     y,
@@ -78,19 +91,20 @@ export const MainChart: React.FC = () => {
         margin={{ top: 12, right: 0, left: -24, bottom: 24 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="pref" tick={<AxisTick />} interval={0} />
+        <XAxis dataKey="pref" tick={false} interval={0} />
         <YAxis domain={[0, 4]} allowDataOverflow />
         <Tooltip />
         <Bar
           dataKey="range50"
           shape={props => <BarShape {...props} dataKey="range50" />}
           isAnimationActive={false}
+          radius={1000}
           stackId="aaaaaa"
         >
           {data.map((entry, index) => (
             <Cell
               key={`cell-${index}`}
-              opacity={0.7}
+              opacity={1}
               fill={entry.ML > 1 ? 'rgba(235, 83, 88)' : 'rgba(53, 179, 46)'}
             />
           ))}
@@ -99,6 +113,7 @@ export const MainChart: React.FC = () => {
           dataKey="range90"
           isAnimationActive={false}
           stackId="aaaaaa"
+          radius={1000}
           shape={props => <BarShape {...props} dataKey="range90" />}
         >
           {data.map((entry, index) => (
@@ -109,7 +124,24 @@ export const MainChart: React.FC = () => {
             />
           ))}
         </Bar>
-        <ReferenceLine y={1} stroke="rgba(235, 83, 88, 0.6)" />
+        <Bar
+          dataKey="ML"
+          isAnimationActive={false}
+          stackId="aaaaaa"
+          radius={1000}
+          shape={DotShape}
+        >
+          <LabelList dataKey="pref" content={<AxisTick />} />
+          {data.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              opacity={1}
+              stroke={entry.ML > 1 ? 'rgba(235, 83, 88)' : 'rgba(53, 179, 46)'}
+              fill="#fff"
+            />
+          ))}
+        </Bar>
+        <ReferenceLine y={1} stroke="rgba(235, 83, 88)" />
       </BarChart>
     </ResponsiveContainer>
   );
