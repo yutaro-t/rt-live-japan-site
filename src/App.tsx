@@ -5,6 +5,7 @@ import { DataProvider } from './contexts/dataContext';
 import styled from '@emotion/styled';
 import { Abstract } from './components/Abstract';
 import { Footer } from './components/Footer';
+import { MainChart } from './components/MainChart';
 
 const Contents = styled.div({
   width: '100%',
@@ -23,6 +24,7 @@ export const App: React.FC = () => {
     <DataProvider>
       <Contents>
         <Abstract />
+        <MainChart />
         <Container>
           {prefs.map(pref => (
             <PrefChart pref={pref} key={pref} />
