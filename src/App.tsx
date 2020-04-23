@@ -4,11 +4,11 @@ import { PrefChart, Container as Dummy } from './components/PrefChart';
 import { DataProvider } from './contexts/dataContext';
 import styled from '@emotion/styled';
 import { Abstract } from './components/Abstract';
-import { MainChart } from './components/MainChart';
+import { Footer } from './components/Footer';
 
 const Contents = styled.div({
   width: '100%',
-  maxWidth: 1440,
+  maxWidth: 1280,
   margin: '0 auto'
 });
 
@@ -31,6 +31,7 @@ export const App: React.FC = () => {
             <Dummy key={i} />
           ))}
         </Container>
+        <Footer />
       </Contents>
     </DataProvider>
   );
