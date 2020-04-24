@@ -18,6 +18,13 @@ export const GlobalStyle: React.FC = () => (
         sub: {
           verticalAlign: 'sub',
           fontSize: '0.6em'
+        },
+        ul: {
+          color: 'rgba(0,0,0,0.65)',
+          lineHeight: '1.8em',
+          margin: '1em 0',
+          listStyleType: 'disc',
+          paddingLeft: 24
         }
       }
     ]}
