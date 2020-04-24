@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import { Contents } from '@App/styles/Contents';
 
 const Header = styled.h2({
-  fontSize: '1.2em'
+  fontSize: '1.4rem',
+  margin: '1em 0',
+  fontWeight: 'bolder'
 });
 const FooterComponent = styled.footer({
   backgroundColor: '#f0f0f0',

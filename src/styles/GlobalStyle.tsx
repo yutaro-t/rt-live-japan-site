@@ -1,15 +1,25 @@
 import React from 'react';
 import { Global } from '@emotion/core';
+import emotionReset from 'emotion-reset';
 export const GlobalStyle: React.FC = () => (
   <Global
-    styles={{
-      p: {
-        fontSize: 14,
-        color: 'rgba(0,0,0,0.65)'
-      },
-      a: {
-        color: '#eb5358'
+    styles={[
+      emotionReset,
+      {
+        html: { fontSize: 14 },
+        p: {
+          color: 'rgba(0,0,0,0.65)',
+          lineHeight: '1.5em',
+          margin: '1em 0'
+        },
+        a: {
+          color: '#eb5358'
+        },
+        sub: {
+          verticalAlign: 'sub',
+          fontSize: '0.6em'
+        }
       }
-    }}
+    ]}
   />
 );
