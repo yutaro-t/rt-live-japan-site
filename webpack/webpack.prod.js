@@ -33,33 +33,6 @@ module.exports = merge(base, {
         ]
       },
       {
-        test: /\.css$/,
-        exclude: /\.module\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: true,
-            },
-          },
-          'css-loader'
-        ],
-      },
-      {
-        test: /\.module\.s?css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: true,
-            },
-          },
-          { loader: "css-modules-typescript-loader"},
-          'css-loader?modules',
-          { loader: "sass-loader"}
-        ],
-      },
-      {
         test: /\.html$/,
         use: {
           loader: 'html-loader'
