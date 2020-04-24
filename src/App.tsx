@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 import { Abstract } from './components/Abstract';
 import { Footer } from './components/Footer';
 import { MainChart } from './components/MainChart';
+import { Global, css } from '@emotion/core';
 
 const Contents = styled.div({
   width: '100%',
@@ -22,6 +23,17 @@ const Container = styled.div({
 export const App: React.FC = () => {
   return (
     <DataProvider>
+      <Global
+        styles={{
+          p: {
+            fontSize: 14,
+            color: 'rgba(0,0,0,0.65)'
+          },
+          a: {
+            color: '#eb5358'
+          }
+        }}
+      />
       <Contents>
         <Abstract />
         <MainChart />

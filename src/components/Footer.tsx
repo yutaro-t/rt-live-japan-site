@@ -4,9 +4,12 @@ import styled from '@emotion/styled';
 const Header = styled.h2`
   font-size: 18px;
 `;
+const FooterComponent = styled.footer`
+  background-color: #f0f0f0;
+`;
 
 export const Footer: React.FC = () => (
-  <>
+  <FooterComponent>
     <Header>当サイトについて</Header>
     <p>
       <a href="https://twitter.com/kevin">Kevin Systrom</a>氏らによる
@@ -15,9 +18,9 @@ export const Footer: React.FC = () => (
       </a>
       を日本の都道府県へと拡張したものです。
       <br />
-      運営・開発は、<a href="https://twitter.com/souring001">souring</a>,{' '}
-      <a href="https://github.com/yutaro-t">yutaro-t</a>
-      によってボランティアで行われています。
+      運営・開発は、<a href="https://github.com/souring001">Kohei Aso</a>,{' '}
+      <a href="https://github.com/yutaro-t">Yutaro Totsuka</a>
+      によって行われています。
       <br />
       問合せは
       <a href="mailto:rt.live.japan@gmail.com">こちら</a>
@@ -67,5 +70,5 @@ export const Footer: React.FC = () => (
     </p>
     <Header>更新履歴</Header>
     <p>2020/04/24 公開</p>
-  </>
+  </FooterComponent>
 );
