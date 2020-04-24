@@ -8,7 +8,6 @@ import { Footer } from './components/Footer';
 import { MainChart } from './components/MainChart';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { Contents } from './styles/Contents';
-import { Chip } from './styles/Chip';
 
 const Container = styled.div({
   display: 'flex',

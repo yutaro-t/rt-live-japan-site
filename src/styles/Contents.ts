@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Contents = styled.div({
-  width: '100%',
+  width: 'calc(100% - 12px)',
   maxWidth: 1280,
-  margin: '0 auto'
+  margin: '12px auto'
 });

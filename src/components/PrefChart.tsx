@@ -36,6 +36,8 @@ export const Container = styled.div(
 
 const Heading = styled.h3({
   paddingLeft: 32,
+  fontSize: '1.2em',
+  fontWeight: 'bold',
   width: '60%',
   margin: 0,
   padding: 0

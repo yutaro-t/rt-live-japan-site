@@ -2,14 +2,30 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Contents } from '@App/styles/Contents';
 
+// import {
+//   FacebookShareButton,
+//   FacebookIcon,
+//   LineShareButton,
+//   LineIcon,
+//   TwitterShareButton,
+//   TwitterIcon
+// } from 'react-share';
+
 const Header = styled.h2({
-  fontSize: '1.2em'
+  fontSize: '1.4rem',
+  margin: '1em 0',
+  fontWeight: 'bolder'
 });
 const FooterComponent = styled.footer({
   backgroundColor: '#f0f0f0',
   padding: '32px 0'
 });
 
+// const Buttons = styled.div({
+//   button: {
+//     marginLeft: 8
+//   }
+// });
 export const Footer: React.FC = () => (
   <FooterComponent>
     <Contents>
@@ -72,8 +88,43 @@ export const Footer: React.FC = () => (
         </a>
         のCSVデータを使用しています。
       </p>
+
+      <Header>免責事項</Header>
+      <ul>
+        <li>
+          当サイトに掲載されている情報の正確性については万全を期していますが、私たちは利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。
+        </li>
+        <li>
+          当サイトに掲載されている情報は、
+          <a href="https://twitter.com/kevin">Kevin Systrom</a>氏らによる
+          <a href="https://rt.live/">
+            R<sub>t</sub> Covid-19
+          </a>
+          と、比較を目的とするものではありません。(異なるアルゴリズムを利用しております）
+        </li>
+        <li>
+          利用者が当サイトを利用したことにより発生した利用者の損害及び利用者が第三者に与えた損害に対して、責任を負うものではありません。
+        </li>
+        <li>
+          当サイトに掲載されている情報は、予告なしに変更又は削除することがあります。
+        </li>
+      </ul>
+
       <Header>更新履歴</Header>
       <p>2020/04/24 公開</p>
+      {/* <Header>シェア</Header>
+
+      <Buttons>
+        <FacebookShareButton url="https://rt-live-japan.netlify.app/">
+          <FacebookIcon round size={32} />
+        </FacebookShareButton>
+        <TwitterShareButton url="https://rt-live-japan.netlify.app/">
+          <TwitterIcon round size={32} />
+        </TwitterShareButton>
+        <LineShareButton url="https://rt-live-japan.netlify.app/">
+          <LineIcon round size={32} />
+        </LineShareButton>
+      </Buttons> */}
     </Contents>
   </FooterComponent>
 );
