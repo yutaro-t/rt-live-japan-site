@@ -65,5 +65,7 @@ export const Footer: React.FC = () => (
       </a>
       のCSVデータを使用しています。
     </p>
+    <Header>更新履歴</Header>
+    <p>2020/04/24 公開</p>
   </>
 );
