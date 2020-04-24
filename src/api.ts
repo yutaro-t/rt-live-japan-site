@@ -1,9 +1,17 @@
-import { csvData } from './rt_japan';
 import csv from 'csvtojson';
 import { DataByPref, prefs } from './type';
+import { csvData } from './rt_japan';
 
 export async function fetchData(): Promise<DataByPref> {
-  const rawData = await csv().fromString(csvData);
+  let csvFile: string;
+  if (process.env.NODE_ENV === 'production') {
+    csvFile = await (
+      await fetch('https://rt-live-japan.netlify.app/assets/csv/rt_japan.csv')
+    ).text();
+  } else {
+    csvFile = csvData;
+  }
+  const rawData = await csv().fromString(csvFile);
   const result = {} as DataByPref;
 
   for (const pref of prefs) {
