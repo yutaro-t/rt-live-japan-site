@@ -26,7 +26,7 @@ export const Footer: React.FC = () => (
         運営・開発は、<a href="https://github.com/souring001">
           Kohei Aso
         </a>, <a href="https://github.com/yutaro-t">Yutaro Totsuka</a>
-        によって行われています。
+        によってボランティアで行われています。
         <br />
         問合せは
         <a href="mailto:rt.live.japan@gmail.com">こちら</a>
