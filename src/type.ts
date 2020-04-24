@@ -1,7 +1,7 @@
 export const prefs = [
   '北海道' as const,
   '青森県' as const,
-  // '岩手県' as const,
+  '岩手県' as const,
   '宮城県' as const,
   '秋田県' as const,
   '山形県' as const,
