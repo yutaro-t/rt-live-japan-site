@@ -2,6 +2,15 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Contents } from '@App/styles/Contents';
 
+// import {
+//   FacebookShareButton,
+//   FacebookIcon,
+//   LineShareButton,
+//   LineIcon,
+//   TwitterShareButton,
+//   TwitterIcon
+// } from 'react-share';
+
 const Header = styled.h2({
   fontSize: '1.4rem',
   margin: '1em 0',
@@ -12,6 +21,11 @@ const FooterComponent = styled.footer({
   padding: '32px 0'
 });
 
+// const Buttons = styled.div({
+//   button: {
+//     marginLeft: 8
+//   }
+// });
 export const Footer: React.FC = () => (
   <FooterComponent>
     <Contents>
@@ -98,6 +112,19 @@ export const Footer: React.FC = () => (
 
       <Header>更新履歴</Header>
       <p>2020/04/24 公開</p>
+      {/* <Header>シェア</Header>
+
+      <Buttons>
+        <FacebookShareButton url="https://rt-live-japan.netlify.app/">
+          <FacebookIcon round size={32} />
+        </FacebookShareButton>
+        <TwitterShareButton url="https://rt-live-japan.netlify.app/">
+          <TwitterIcon round size={32} />
+        </TwitterShareButton>
+        <LineShareButton url="https://rt-live-japan.netlify.app/">
+          <LineIcon round size={32} />
+        </LineShareButton>
+      </Buttons> */}
     </Contents>
   </FooterComponent>
 );
