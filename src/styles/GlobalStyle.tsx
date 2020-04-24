@@ -6,7 +6,12 @@ export const GlobalStyle: React.FC = () => (
     styles={[
       emotionReset,
       {
-        html: { fontSize: 14 },
+        html: {
+          fontSize: 14,
+          fontFamily:
+            "'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;",
+          backgroundColor: '#fafafa'
+        },
         p: {
           color: 'rgba(0,0,0,0.65)',
           lineHeight: '1.5em',
