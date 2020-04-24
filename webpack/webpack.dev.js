@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const base = require('./webpack.common');
 const babelConfig = require('../babel.config');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(base, {
   mode: 'development',

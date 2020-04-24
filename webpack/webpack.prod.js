@@ -1,17 +1,14 @@
 const merge = require('webpack-merge');
 const base = require('./webpack.common');
 const babelConfig = require('../babel.config');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = merge(base, {
   mode: 'production',
   devtool: 'source-map',
   optimization: {
-    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new TerserPlugin()],
   },
   plugins: [new CompressionPlugin()],
   module: {
