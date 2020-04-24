@@ -20,7 +20,7 @@ function shortPref(pref: any) {
   return pref.slice(0, -1);
 }
 
-const AxisTick: React.FC<any> = ({ x, y, value, width, stroke }) => {
+const PrefLabel: React.FC<any> = ({ x, y, value, width, stroke, height }) => {
   const display = shortPref(value);
   return (
     <g transform={`translate(${x},${y})`}>
@@ -28,7 +28,7 @@ const AxisTick: React.FC<any> = ({ x, y, value, width, stroke }) => {
         x={0}
         y={0}
         dx={width / 2}
-        dy={3}
+        dy={height === 0 ? -4 : 3}
         textAnchor="middle"
         fill={stroke}
         fontSize={display.length === 3 ? 6 : 8}
@@ -42,8 +42,8 @@ const AxisTick: React.FC<any> = ({ x, y, value, width, stroke }) => {
 const BarShape: React.FC<any> = props => {
   const { dataKey, background } = props;
   const { [dataKey]: values } = props;
-  const y = (1 - values[0] / 4) * background.height + background.y;
-  const height = ((values[0] - values[1]) / 4) * background.height;
+  const height = ((values[1] - values[0]) / 4) * background.height;
+  const y = ((4 - values[1]) * background.height) / 4 + background.y;
   const _props = {
     ...props,
     y,
@@ -53,9 +53,9 @@ const BarShape: React.FC<any> = props => {
 };
 
 const DotShape: React.FC<any> = props => {
-  const { y: _y } = props;
-  const y = _y - 8;
+  const { y: _y, background } = props;
   const height = 16;
+  const y = Math.min(_y - 8, background.height + background.y - height);
   const _props = {
     ...props,
     y,
@@ -74,11 +74,15 @@ export const MainChart: React.FC = () => {
       for (const d of value[pref]) {
         if (d.date < selectedDate) return { ...d, pref };
       }
-      return { ...value[pref][value[pref].length - 1], pref };
+      return {
+        pref,
+        ML: Number.NEGATIVE_INFINITY,
+        range50: [Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY],
+        range90: [Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY]
+      };
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    data.sort((a, b) => a!.ML - b!.ML);
+    data.sort((a, b) => a?.ML - b?.ML);
     return data;
   }, [value, selectedDate]);
 
@@ -131,7 +135,7 @@ export const MainChart: React.FC = () => {
           radius={1000}
           shape={DotShape}
         >
-          <LabelList dataKey="pref" content={<AxisTick />} />
+          <LabelList dataKey="pref" content={<PrefLabel />} />
           {data.map((entry, index) => (
             <Cell
               key={`cell-${index}`}

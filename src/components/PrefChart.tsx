@@ -74,7 +74,7 @@ export const PrefChart: React.FC<{ pref: Prefs }> = ({ pref }) => {
   const maxLine = Math.max.apply(null, data.map(d => d.ML) ?? [1]);
   const minLine = Math.min.apply(null, data.map(d => d.ML) ?? [0]);
   const lineOffset = justifyOffset((maxLine - 1) / (maxLine - minLine));
-  const latest = data[0]?.ML ?? Number.POSITIVE_INFINITY;
+  const latest = data[0]?.ML ?? 0;
   return (
     <Container>
       <Flex>
