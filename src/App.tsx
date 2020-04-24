@@ -6,13 +6,9 @@ import styled from '@emotion/styled';
 import { Abstract } from './components/Abstract';
 import { Footer } from './components/Footer';
 import { MainChart } from './components/MainChart';
-import { Global, css } from '@emotion/core';
-
-const Contents = styled.div({
-  width: '100%',
-  maxWidth: 1280,
-  margin: '0 auto'
-});
+import { GlobalStyle } from './styles/GlobalStyle';
+import { Contents } from './styles/Contents';
+import { Chip } from './styles/Chip';
 
 const Container = styled.div({
   display: 'flex',
@@ -23,19 +19,10 @@ const Container = styled.div({
 export const App: React.FC = () => {
   return (
     <DataProvider>
-      <Global
-        styles={{
-          p: {
-            fontSize: 14,
-            color: 'rgba(0,0,0,0.65)'
-          },
-          a: {
-            color: '#eb5358'
-          }
-        }}
-      />
+      <GlobalStyle />
       <Contents>
         <Abstract />
+        {/* <Chip>更新日時: </Chip> */}
         <MainChart />
         <Container>
           {prefs.map(pref => (
@@ -45,8 +32,8 @@ export const App: React.FC = () => {
             <Dummy key={i} />
           ))}
         </Container>
-        <Footer />
       </Contents>
+      <Footer />
     </DataProvider>
   );
 };
