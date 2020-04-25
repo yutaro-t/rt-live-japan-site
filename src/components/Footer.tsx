@@ -115,13 +115,13 @@ export const Footer: React.FC = () => (
       {/* <Header>シェア</Header>
 
       <Buttons>
-        <FacebookShareButton url="https://rt-live-japan.com/">
+        <FacebookShareButton url="https://rt-live-japan.netlify.app/">
           <FacebookIcon round size={32} />
         </FacebookShareButton>
-        <TwitterShareButton url="https://rt-live-japan.com/">
+        <TwitterShareButton url="https://rt-live-japan.netlify.app/">
           <TwitterIcon round size={32} />
         </TwitterShareButton>
-        <LineShareButton url="https://rt-live-japan.com/">
+        <LineShareButton url="https://rt-live-japan.netlify.app/">
           <LineIcon round size={32} />
         </LineShareButton>
       </Buttons> */}

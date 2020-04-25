@@ -1,6 +1,6 @@
-# [Rt Covid-19 Japan](https://rt-live-japan.com/)
+# [Rt Covid-19 Japan](https://rt-live-japan.netlify.app/)
 
-都道府県別の実効再生産数(Rt)の変化をグラフ化したWebサイト[Rt Covid-19 Japan](https://rt-live-japan.com/)のソースコードです。
+都道府県別の実効再生産数(Rt)の変化をグラフ化したWebサイト[Rt Covid-19 Japan](https://rt-live-japan.netlify.app/)のソースコードです。
 データ解析に関するコードは[こちら](https://github.com/souring001/covid-19/blob/master/generate_csv.py)で公開しております。
 
 
