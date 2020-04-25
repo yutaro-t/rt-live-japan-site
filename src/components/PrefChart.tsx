@@ -133,7 +133,10 @@ export const PrefChart: React.FC<{ pref: Prefs }> = ({ pref }) => {
           <XAxis
             dataKey="date"
             type="number"
-            domain={[new Date('2020-03-01').getTime(), new Date().getTime()]}
+            domain={[
+              new Date('2020-03-01').getTime(),
+              new Date().setDate(new Date().getDate() - 1)
+            ]}
             tickFormatter={formatDate}
             allowDataOverflow
           />
