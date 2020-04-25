@@ -40,10 +40,10 @@ export const Footer: React.FC = () => (
         運営・開発は、<a href="https://github.com/souring001">
           Kohei Aso
         </a>, <a href="https://github.com/yutaro-t">Yutaro Totsuka</a>
-        によってボランティアで行われています。
+        によってボランティアで行われています。データは毎日自動で更新されます。
         <br />
         問合せは
-        <a href="mailto:rt.live.japan@gmail.com">こちら</a>
+        <a href="mailto:rt.live.japan@gmail.com">rt.live.japan@gmail.com</a>
         までお願いします。
         <br />
         こうした活動を推奨してくださったKevin
@@ -70,11 +70,11 @@ export const Footer: React.FC = () => (
         </a>
         をご覧ください。
         <br />R<sub>t</sub>
-        の算出方法についての詳細は、 Kevin Systrom氏の
+        の算出については、 Kevin Systrom氏の
         <a href="https://github.com/k-sys/covid-19/blob/master/Realtime%20R0.ipynb">
           Jupyter notebook
         </a>
-        をご参照ください。
+        を元にしています。
         <br />
         日本版を生成しているコードは
         <a href="https://github.com/souring001/covid-19/blob/master/generate_csv.py">
@@ -100,7 +100,7 @@ export const Footer: React.FC = () => (
           <a href="https://rt.live/">
             R<sub>t</sub> Covid-19
           </a>
-          と、比較を目的とするものではありません。(異なるアルゴリズムを利用しております）
+          と、比較を目的とするものではありません。(全く同じアルゴリズムを利用していません。）
         </li>
         <li>
           利用者が当サイトを利用したことにより発生した利用者の損害及び利用者が第三者に与えた損害に対して、責任を負うものではありません。
