@@ -81,7 +81,9 @@ export const Footer: React.FC = () => (
           こちら
         </a>
         で公開しています。
-        <br />
+      </p>
+      <Header>データについて</Header>
+      <p>
         本サイトで公表しているデータは、ジャッグジャパン株式会社が提供している
         <a href="https://gis.jag-japan.com/covid19jp">
           都道府県別新型コロナウイルス感染者数マップ
