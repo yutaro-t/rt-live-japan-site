@@ -13,6 +13,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { BarShape, DotShape, PrefLabel } from './components';
+import { formatTooltip, sortItem } from './utils';
 
 export const VerticalChart: React.FC<Props> = ({ data }) => {
   return (
@@ -25,7 +26,7 @@ export const VerticalChart: React.FC<Props> = ({ data }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis domain={[0, 4]} interval={0} type="number" />
         <YAxis dataKey="pref" tick={false} allowDataOverflow type="category" />
-        <Tooltip />
+        <Tooltip itemSorter={sortItem} formatter={formatTooltip} />
         <Bar
           dataKey="range50"
           isAnimationActive={false}

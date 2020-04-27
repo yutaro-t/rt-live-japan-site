@@ -13,6 +13,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { BarShape, DotShape, PrefLabel } from './components';
+import { formatTooltip, sortItem } from './utils';
 
 export const HorizontalChart: React.FC<Props> = ({ data }) => {
   return (
@@ -24,7 +25,7 @@ export const HorizontalChart: React.FC<Props> = ({ data }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="pref" tick={false} interval={0} />
         <YAxis domain={[0, 4]} allowDataOverflow />
-        <Tooltip />
+        <Tooltip itemSorter={sortItem} formatter={formatTooltip} />
         <Bar
           dataKey="range50"
           shape={props => <BarShape {...props} dataKey="range50" />}
