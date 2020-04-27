@@ -6,7 +6,7 @@ export async function fetchData(): Promise<DataByPref> {
   let csvFile: string;
   if (process.env.NODE_ENV === 'production') {
     csvFile = await (
-      await fetch('https://rt-live-japan.netlify.app/assets/csv/rt_japan.csv')
+      await fetch('https://rt-live-japan.com/assets/csv/rt_japan.csv')
     ).text();
   } else {
     csvFile = csvData;
