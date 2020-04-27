@@ -13,7 +13,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { BarShape, DotShape, PrefLabel } from './components';
-import { formatTooltip, sortItem } from './utils';
+import { formatTooltip, sortItem } from '../utils';
 
 export const VerticalChart: React.FC<Props> = ({ data }) => {
   return (

@@ -13,6 +13,7 @@ import {
 } from 'recharts';
 import styled from '@emotion/styled';
 import { Prefs } from '@App/type';
+import { formatTooltip } from './utils';
 
 function formatDate(time: number): string {
   return new Date(time).toDateString().slice(4, 10);
@@ -141,7 +142,10 @@ export const PrefChart: React.FC<{ pref: Prefs }> = ({ pref }) => {
             allowDataOverflow
           />
           <YAxis type="number" domain={[0, 4]} allowDataOverflow />
-          <Tooltip labelFormatter={v => formatDate(v as number)} />
+          <Tooltip
+            labelFormatter={v => formatDate(v as number)}
+            formatter={formatTooltip}
+          />
           <Line
             type="monotone"
             dataKey="ML"

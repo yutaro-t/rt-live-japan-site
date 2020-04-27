@@ -10,9 +10,15 @@ const order = {
   range90: 2
 };
 
+function shortenFloat(v) {
+  return v.toFixed ? v.toFixed(2) : v;
+}
+
 export function formatTooltip(value: any, name: string) {
   return [
-    Array.isArray(value) ? value.join(' ~ ') : value,
+    Array.isArray(value)
+      ? value.map(shortenFloat).join(' ~ ')
+      : shortenFloat(value),
     mapper[name] ?? name
   ];
 }
