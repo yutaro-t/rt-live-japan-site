@@ -44,7 +44,7 @@ export const Footer: React.FC = () => (
         <br />
         問合せは
         <a href="mailto:rt.live.japan@gmail.com">rt.live.japan@gmail.com</a>
-        までお願いします。
+        までお願いします。現在、大変多くのお問い合わせを頂いており、ご返信には相応のお時間を頂く場合がございます。
         <br />
         こうした活動を推奨してくださったKevin
         Systrom氏をはじめとする、アメリカ版のサイト制作に尽力された皆様に深く感謝申し上げます。
