@@ -37,10 +37,10 @@ export const Footer: React.FC = () => (
         </a>
         を日本の都道府県へと拡張したものです。
         <br />
-        運営・開発は、<a href="https://github.com/souring001">
-          Kohei Aso
-        </a>, <a href="https://github.com/yutaro-t">Yutaro Totsuka</a>
-        によってボランティアで行われています。データは毎日自動で更新されます。
+        運営・開発は、2人の学生(
+        <a href="https://github.com/souring001">Kohei Aso</a>,{' '}
+        <a href="https://github.com/yutaro-t">Yutaro Totsuka</a>
+        )によってボランティアで行われています。データは毎日自動で更新されます。
         <br />
         問合せは
         <a href="mailto:rt.live.japan@gmail.com">rt.live.japan@gmail.com</a>
