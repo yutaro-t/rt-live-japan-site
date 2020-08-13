@@ -101,6 +101,9 @@ export const Footer: React.FC = () => (
           当サイトに掲載されている情報の正確性については万全を期していますが、私たちは利用者が当サイトの情報を用いて行う一切の行為について責任を負うものではありません。
         </li>
         <li>
+          当サイトの管理者は、感染症や公衆衛生学の専門家ではありません。
+        </li>
+        <li>
           当サイトに掲載されている情報は、
           <a href="https://twitter.com/kevin">Kevin Systrom</a>氏らによる
           <a href="https://rt.live/">
