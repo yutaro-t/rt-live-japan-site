@@ -21,18 +21,7 @@ export const App: React.FC = () => {
       <GlobalStyle />
       <Contents>
         <Abstract />
-        {/* <Chip>更新日時: </Chip> */}
-        <MainChart />
-        <Container>
-          {prefs.map(pref => (
-            <PrefChart pref={pref} key={pref} />
-          ))}
-          {Array.from({ length: 3 - (prefs.length % 3) }).map((_, i) => (
-            <Dummy key={i} />
-          ))}
-        </Container>
       </Contents>
-      <Footer />
     </DataProvider>
   );
 };
