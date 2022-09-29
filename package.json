@@ -69,6 +69,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-share": "^4.1.0",
-    "recharts": "^1.8.5"
+    "recharts": "^2.1.14"
   }
 }
